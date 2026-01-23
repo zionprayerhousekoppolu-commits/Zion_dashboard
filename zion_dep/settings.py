@@ -61,6 +61,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'zion_dep.urls'
+ADMIN_SITE_HEADER = "Zion Admin"
+ADMIN_SITE_TITLE = "Zion Dashboard"
+ADMIN_INDEX_TITLE = "Welcome to Zion Dashboard"
+
 
 TEMPLATES = [
     {
