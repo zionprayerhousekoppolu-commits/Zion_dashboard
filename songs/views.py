@@ -4,13 +4,13 @@ from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from .models import SongLyric
-from .serializers import SongLyricSerializer
+from .serializers import SongLyricSerializer, SongListSerializer
 
 
 # GET: /songs/
 class SongListView(generics.ListAPIView):
     queryset = SongLyric.objects.all().order_by('song_no')
-    serializer_class = SongLyricSerializer
+    serializer_class = SongListSerializer
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -53,7 +53,7 @@ class SongDetailView(generics.RetrieveAPIView):
 
 # GET: /songs/search/?q=...
 class SongSearchView(generics.ListAPIView):
-    serializer_class = SongLyricSerializer
+    serializer_class = SongListSerializer
 
     def get_queryset(self):
         q = self.request.query_params.get('q', '').strip()

@@ -16,3 +16,17 @@ class SongLyricSerializer(serializers.ModelSerializer):
             'updated_at'
         ]
         read_only_fields = ['created_at', 'updated_at']
+        
+        
+class SongListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SongLyric
+        fields = [
+            'id',
+            'song_no',
+            'song_name',
+            'song_title',
+            'created_at',
+            'updated_at'
+        ]
+        read_only_fields = ['created_at', 'updated_at']
