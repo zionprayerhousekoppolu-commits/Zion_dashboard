@@ -4,5 +4,14 @@ from . import views
 app_name = 'languages'
 
 urlpatterns = [
-    path('languageslist/', views.LanguageListView.as_view(), name='languageslist'),
-]
+    path('songslist/', 
+         views.SongListView.as_view(), 
+         name='song-list-by-language'),
+    
+    path('<int:id>/', 
+         views.SongDetailView.as_view(), 
+         name='song-detail'),
+    
+    path('search/', 
+         views.SongSearchView.as_view(), 
+         name='song-search'),]

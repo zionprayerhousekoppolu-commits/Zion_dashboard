@@ -1,14 +1,17 @@
 from rest_framework import serializers
-from .models import languageList
+from songs.models import SongLyric
 
-class LanguageListSerializer(serializers.ModelSerializer):
+class SongLyricSerializer(serializers.ModelSerializer):
     class Meta:
-        model = languageList
+        model = SongLyric
         fields = [
             'id',
-            'languageCode',
-            'languages',
-            'is_active',
+            'song_no',
+            'song_name',
+            'song_title',
+            'priseWord',
+            'song_lyric',
+            'song_audio',
             'created_at',
             'updated_at'
         ]
