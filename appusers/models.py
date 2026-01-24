@@ -29,9 +29,9 @@ class AppUser(models.Model):
         ('User', 'User')
     ]
     role = models.CharField(max_length=4, choices=ROLE_CHOCIES)
-    name = models.CharField()
-    mobileNumber = models.CharField(null=True, blank=True)
-    gmail = models.CharField()
+    name = models.CharField(max_length=100)
+    mobileNumber = models.CharField(null=True, blank=True, max_length=10)
+    gmail = models.CharField(max_length=100)
     age = models.PositiveIntegerField(null=True, blank=True, default=0)
     profile = models.FileField(upload_to='users/profile/', null=True, blank=True)
     prefered_language_for_dailyWord = models.ForeignKey(languageList, on_delete=models.CASCADE, related_name='dailyword_users', null=True, blank=True)
@@ -44,7 +44,7 @@ class AppUser(models.Model):
     
 class UserToken(models.Model):
     user = models.ForeignKey(AppUser, on_delete=models.CASCADE, related_name="tokens")
-    access_token = models.CharField(null=True, blank=True)
+    access_token = models.CharField(null=True, blank=True, max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
