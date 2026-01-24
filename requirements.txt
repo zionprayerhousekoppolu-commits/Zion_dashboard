@@ -3,3 +3,4 @@ Django
 djangorestframework
 sqlparse
 django-cors-headers
+jazzmindjango
